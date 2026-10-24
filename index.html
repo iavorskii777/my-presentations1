@@ -3,24 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Тема 4. Структура и оформление бизнес-презентации</title>
+<title>Тема 2. Типы и цели презентаций</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#04091a;
-  --bg2:#0e1a33;
+  --bg:#060a16;
+  --bg2:#101a33;
   --card:rgba(255,255,255,.06);
-  --border:rgba(120,200,255,.25);
-  --text:#e9f3ff;
-  --muted:#9db2d8;
-  --accent:#00e0ff;
+  --border:rgba(110,190,255,.25);
+  --text:#eaf3ff;
+  --muted:#9db1d6;
+  --accent:#00e5ff;
   --accent2:#b388ff;
   --accent3:#00ffa3;
   --code-bg:rgba(0,0,0,.45);
 }
 body.light{
-  --bg:#f2f7ff;
-  --bg2:#e6edff;
+  --bg:#f3f7ff;
+  --bg2:#e7edff;
   --card:rgba(255,255,255,.78);
   --border:rgba(20,70,150,.18);
   --text:#0f1a2e;
@@ -34,8 +34,8 @@ body.light{
 body{
   font-family:'Inter',sans-serif;color:var(--text);
   background:
-    radial-gradient(circle at 8% 14%, rgba(0,224,255,.18), transparent 35%),
-    radial-gradient(circle at 92% 16%, rgba(179,136,255,.18), transparent 35%),
+    radial-gradient(circle at 8% 12%, rgba(0,229,255,.18), transparent 35%),
+    radial-gradient(circle at 92% 18%, rgba(179,136,255,.18), transparent 35%),
     radial-gradient(circle at 50% 100%, rgba(0,255,163,.12), transparent 40%),
     linear-gradient(135deg,var(--bg),var(--bg2));
   min-height:100vh;transition:.4s;
@@ -44,7 +44,7 @@ header{
   position:sticky;top:0;z-index:20;
   display:flex;justify-content:space-between;align-items:center;
   padding:16px 28px;
-  background:rgba(6,12,26,.55);
+  background:rgba(8,14,30,.55);
   backdrop-filter:blur(14px);
   border-bottom:1px solid var(--border);
 }
@@ -91,7 +91,7 @@ a{color:var(--accent);text-decoration:none;border-bottom:1px dashed var(--accent
 a:hover{color:var(--accent3)}
 table{width:100%;border-collapse:collapse;margin-top:16px;font-size:14px}
 th,td{border:1px solid var(--border);padding:10px;text-align:left}
-th{background:rgba(0,224,255,.12)}
+th{background:rgba(0,229,255,.12)}
 .nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;gap:12px;flex-wrap:wrap}
 .progress{height:5px;border-radius:99px;background:var(--border);overflow:hidden;margin-bottom:22px}
 .progress div{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:.35s}
@@ -101,7 +101,7 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:13px}
 <body>
 
 <header>
-  <div class="brand">BUSINESS<span>·</span>DECK</div>
+  <div class="brand">TYPES<span>·</span>OF<span>·</span>TALKS</div>
   <div class="controls">
     <button onclick="prevSlide()">← Назад</button>
     <button onclick="nextSlide()">Вперёд →</button>
@@ -113,169 +113,153 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:13px}
   <div class="progress"><div id="bar"></div></div>
 
   <section class="slide active">
-    <span class="tag">Бизнес-презентация · Python · Data Visualization</span>
-    <h1>Структура, содержание и визуальное оформление бизнес-презентации</h1>
-    <p class="muted">Тема 4. От структуры и слайдов до корректной визуализации данных и стилей выступления.</p>
+    <span class="tag">Деловая коммуникация · Python · Event · Наука</span>
+    <h1>Типы и цели презентаций</h1>
+    <p class="muted">Тема 2. От продающей презентации и питча до научного слэма и внутрикорпоративных коммуникаций.</p>
     <div class="grid">
-      <div class="card"><b>Цель</b><p>Научиться создавать понятные и убедительные бизнес-презентации.</p></div>
-      <div class="card"><b>Инструменты</b><p>Python, pandas, Matplotlib, Seaborn, HTML.</p></div>
-      <div class="card"><b>Результат</b><p>Слайды с выводами, графиками и призывом к действию.</p></div>
+      <div class="card"><b>Цель</b><p>Выбирать формат выступления под задачу и аудиторию.</p></div>
+      <div class="card"><b>Форматы</b><p>Продажи, питч, отчёт, пресс-конференция, научный доклад.</p></div>
+      <div class="card"><b>Результат</b><p>Понимание, убеждение, действие или научная дискуссия.</p></div>
     </div>
   </section>
 
   <section class="slide">
-    <h2>Структура бизнес-презентации</h2>
+    <h2>Цели публичного выступления</h2>
     <ul>
-      <li>Титульный слайд.</li>
-      <li>Проблема и контекст.</li>
-      <li>Цель и предложение.</li>
-      <li>Решение и доказательства.</li>
-      <li>Выгоды, риски и план внедрения.</li>
-      <li>Призыв к действию.</li>
+      <li><b>Информировать</b> — передать факты и объяснить тему.</li>
+      <li><b>Убедить</b> — изменить мнение или отношение аудитории.</li>
+      <li><b>Побудить к действию</b> — получить решение, заказ, инвестиции.</li>
+      <li><b>Мотивировать</b> — вовлечь и вдохновить на изменения.</li>
+      <li><b>Представить организацию</b> — укрепить репутацию и контакты.</li>
     </ul>
-    <p class="muted">Формула: проблема → решение → доказательство → выгода → следующий шаг.</p>
+    <p class="muted">Формат презентации выбирается по ожидаемому результату, а не по количеству слайдов.</p>
   </section>
 
   <section class="slide">
-    <h2>Виды слайдов</h2>
+    <h2>Продающая презентация</h2>
+    <p>Продающая презентация ведёт клиента к действию: покупке, заявке, демо или договору.</p>
+    <ul>
+      <li>Проблема клиента.</li>
+      <li>Решение и его отличие от альтернатив.</li>
+      <li>Доказательства: кейсы, метрики, отзывы.</li>
+      <li>Измеримая выгода.</li>
+      <li>Чёткий призыв к действию.</li>
+    </ul>
+    <p class="muted">Вместо «используем ML» — «сокращаем время обработки заявок на 35%».</p>
+  </section>
+
+  <section class="slide">
+    <h2>Бизнес-проект и питч</h2>
     <table>
-      <tr><th>Вид</th><th>Назначение</th></tr>
-      <tr><td>Титульный</td><td>Представление темы и спикера</td></tr>
-      <tr><td>Проблемный</td><td>Показать значимость задачи</td></tr>
-      <tr><td>Решение</td><td>Представить предложение</td></tr>
-      <tr><td>Данные</td><td>Подтвердить тезис цифрами</td></tr>
-      <tr><td>Кейс</td><td>Показать реальный результат</td></tr>
-      <tr><td>Дорожная карта</td><td>Обозначить этапы и сроки</td></tr>
-      <tr><td>Финальный</td><td>Сформулировать вывод и CTA</td></tr>
+      <tr><th>Вид питча</th><th>Аудитория</th><th>Задача</th></tr>
+      <tr><td>Инвесторский</td><td>Инвесторы</td><td>Показать рынок, рост и возврат инвестиций</td></tr>
+      <tr><td>Продажный</td><td>Клиенты</td><td>Обосновать ценность решения</td></tr>
+      <tr><td>Лифт-питч</td><td>Любая аудитория</td><td>За 30–60 секунд объяснить идею</td></tr>
+      <tr><td>Питч стартапа</td><td>Акселераторы, фонды</td><td>Представить проблему, решение и команду</td></tr>
     </table>
+    <p class="muted">Подробнее о питчах: <a href="https://ingate.ru/wikipedia/pitch/" target="_blank">Ingate — Питч</a>.</p>
   </section>
 
   <section class="slide">
-    <h2>Принципы оформления</h2>
+    <h2>Информационные и убеждающие выступления</h2>
     <div class="grid">
-      <div class="card"><b>Одна мысль</b><p>Один слайд раскрывает один тезис.</p></div>
-      <div class="card"><b>Заголовок-вывод</b><p>Не «Результаты», а «Время обработки сократилось на 40%».</p></div>
-      <div class="card"><b>Минимум текста</b><p>Детали объясняет спикер.</p></div>
-      <div class="card"><b>Единый стиль</b><p>Один шрифт, ограниченная палитра, единые отступы.</p></div>
+      <div class="card"><b>Информационное</b><p>Передаёт знания, факты, регламенты и результаты.</p></div>
+      <div class="card"><b>Убеждающее</b><p>Меняет мнение через аргументы, данные и доверие.</p></div>
+      <div class="card"><b>Побуждающее</b><p>Завершается конкретным действием аудитории.</p></div>
+      <div class="card"><b>Протокольное</b><p>Обеспечивает официальный и корректный формат общения.</p></div>
     </div>
   </section>
 
   <section class="slide">
-    <h2>Типичные ошибки</h2>
+    <h2>Event-индустрия</h2>
+    <p><b>Мотивационное выступление</b> отвечает на вопрос: «Почему стоит действовать?»</p>
+    <p><b>Экспертное выступление</b> отвечает на вопрос: «Как сделать правильно?»</p>
     <ul>
-      <li>Перегруженный текст и мелкий шрифт.</li>
-      <li>Несколько мыслей на одном слайде.</li>
-      <li>График без вывода, единиц измерения и источника.</li>
-      <li>Избыточные анимации и 3D-эффекты.</li>
-      <li>Таблицы вместо ключевых показателей.</li>
-      <li>Отсутствие призыва к действию.</li>
+      <li>Конференции и форумы.</li>
+      <li>Мастер-классы и воркшопы.</li>
+      <li>Панельные дискуссии.</li>
+      <li>Корпоративные мероприятия.</li>
     </ul>
-    <p class="muted">Распространённая ошибка — более одной мысли на слайде. Источник: <a href="https://prepod.nspu.ru/pluginfile.php/337/mod_resource/content/0/Pravila_oformlenija_slaidov_dlja_biznes-prezentacii_metodicheskoe_posobie.pdf" target="_blank">Правила оформления слайдов</a>.</p>
   </section>
 
   <section class="slide">
-    <h2>Визуализация данных</h2>
-    <table>
-      <tr><th>Задача</th><th>Визуализация</th></tr>
-      <tr><td>Сравнить категории</td><td>Столбчатая диаграмма</td></tr>
-      <tr><td>Показать динамику</td><td>Линейный график</td></tr>
-      <tr><td>Показать структуру</td><td>Круговая диаграмма</td></tr>
-      <tr><td>Показать связь</td><td>Диаграмма рассеяния</td></tr>
-      <tr><td>Показать процесс</td><td>Дорожная карта</td></tr>
-    </table>
+    <h2>Пресс-конференция</h2>
+    <p>Пресс-конференция — встреча представителей организации с журналистами для официального информирования и ответов на вопросы.</p>
+    <ul>
+      <li>Представление продукта или проекта.</li>
+      <li>Управление репутацией.</li>
+      <li>Реакция на кризисную ситуацию.</li>
+      <li>Формирование информационного повода.</li>
+    </ul>
+    <p class="muted">Источник: <a href="https://www.investopedia.com/terms/p/press-conference.asp" target="_blank">Investopedia — Press Conferences</a>.</p>
   </section>
 
   <section class="slide">
-    <h2>Практикум: подготовка данных</h2>
+    <h2>Практикум: анализ обучения на Python</h2>
     <pre><code>import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
 data = {
-    "month": ["Янв", "Фев", "Мар", "Апр", "Май", "Июн"],
-    "processing_time_before": [8.4, 8.6, 8.9, 9.2, 9.4, 9.8],
-    "processing_time_after": [8.4, 8.3, 6.9, 5.8, 5.1, 4.6],
-    "errors_before": [38, 41, 44, 47, 49, 52],
-    "errors_after": [38, 37, 25, 18, 14, 11]
+    "program": ["Python для аналитиков", "Основы Data Science",
+                "Информационная безопасность", "Excel и автоматизация"],
+    "employees": [45, 38, 30, 60],
+    "completed": [34, 22, 24, 51],
+    "cost": [360000, 480000, 300000, 180000],
+    "productivity_growth": [0.18, 0.22, 0.15, 0.12]
 }
 
 df = pd.DataFrame(data)
+df["completion_rate"] = df["completed"] / df["employees"]
+df["cost_per_employee"] = df["cost"] / df["employees"]
+df["cost_per_completed"] = df["cost"] / df["completed"]
 
-before = df["processing_time_before"].iloc[-1]
-after = df["processing_time_after"].iloc[-1]
-reduction = (before - after) / before
-
-print(f"Снижение времени обработки: {reduction:.0%}")</code></pre>
+print(df)</code></pre>
   </section>
 
   <section class="slide">
-    <h2>График для слайда</h2>
-    <pre><code>plt.figure(figsize=(10, 5))
+    <h2>Визуализация результатов</h2>
+    <pre><code>plt.figure(figsize=(11, 5))
 
-sns.lineplot(
+sns.scatterplot(
     data=df,
-    x="month",
-    y="processing_time_before",
-    label="До внедрения",
-    marker="o"
+    x="completion_rate",
+    y="productivity_growth",
+    size="employees",
+    hue="program",
+    sizes=(100, 500),
+    alpha=0.85
 )
 
-sns.lineplot(
-    data=df,
-    x="month",
-    y="processing_time_after",
-    label="После внедрения",
-    marker="o"
-)
-
-plt.title("Автоматизация сократила время обработки заявок")
-plt.xlabel("Месяц")
-plt.ylabel("Время обработки, ч.")
+plt.title("Завершаемость и рост производительности")
+plt.xlabel("Доля завершивших обучение")
+plt.ylabel("Рост производительности")
 plt.grid(True, alpha=0.3)
-plt.legend()
 plt.tight_layout()
 plt.show()</code></pre>
-    <p class="muted">Документация: <a href="https://matplotlib.org/stable/" target="_blank">Matplotlib</a>, <a href="https://seaborn.pydata.org/" target="_blank">Seaborn</a>.</p>
+    <p class="muted">Документация: <a href="https://seaborn.pydata.org/" target="_blank">Seaborn</a>, <a href="https://matplotlib.org/stable/" target="_blank">Matplotlib</a>, <a href="https://pandas.pydata.org/docs/" target="_blank">pandas</a>.</p>
   </section>
 
   <section class="slide">
-    <h2>Стили презентаций</h2>
+    <h2>Научные форматы</h2>
     <table>
-      <tr><th>Стиль</th><th>Задача</th><th>Когда использовать</th></tr>
-      <tr><td>Пошаговый</td><td>Объяснить процесс</td><td>Обучение, внедрение</td></tr>
-      <tr><td>Эмоциональный</td><td>Вовлечь аудиторию</td><td>Event, бренд, изменения</td></tr>
-      <tr><td>Резюмирующий</td><td>Представить итоги</td><td>Отчёт, руководство</td></tr>
-      <tr><td>Убеждающий</td><td>Получить согласие</td><td>Инвестиции, продажа</td></tr>
+      <tr><th>Признак</th><th>Научный доклад</th><th>Научный слэм</th></tr>
+      <tr><td>Аудитория</td><td>Специалисты</td><td>Широкая публика</td></tr>
+      <tr><td>Время</td><td>10–20 минут и более</td><td>3–10 минут</td></tr>
+      <tr><td>Слайды</td><td>Методы, данные, формулы</td><td>Минимум визуальных деталей</td></tr>
+      <tr><td>Цель</td><td>Научная дискуссия</td><td>Интерес и популяризация</td></tr>
     </table>
-  </section>
-
-  <section class="slide">
-    <h2>Финальный слайд</h2>
-    <p><b>Рекомендация:</b> согласовать пилотное внедрение автоматизации обработки заявок на одном подразделении.</p>
-    <ul>
-      <li>Срок пилота — 4 недели.</li>
-      <li>Ожидаемый эффект — снижение времени обработки и числа ошибок.</li>
-      <li>Следующий шаг — утвердить рабочую группу и план пилота.</li>
-    </ul>
-    <p class="muted">Финальный слайд всегда должен отвечать на вопрос: «Что делать дальше?»</p>
   </section>
 
   <section class="slide">
     <h2>Источники и материалы</h2>
     <ul>
-      <li><a href="https://bonnieandslide.com/blog/biznes-prezentatsiya" target="_blank">Bonnie and Slide — бизнес-презентация</a></li>
-      <li><a href="https://www.slidescarnival.com/learn/how-to-make-a-business-presentation" target="_blank">SlidesCarnival</a></li>
-      <li><a href="https://visme.co/blog/business-presentation-layout/" target="_blank">Visme — Business Presentation Layout</a></li>
-      <li><a href="https://ixdf.org/literature/topics/presentation-styles?order-by=date" target="_blank">IxDF — Presentation Styles</a></li>
-      <li><a href="https://pandas.pydata.org/docs/" target="_blank">pandas</a></li>
-      <li><a href="https://matplotlib.org/stable/" target="_blank">Matplotlib</a></li>
-      <li><a href="https://seaborn.pydata.org/" target="_blank">Seaborn</a></li>
       <li><a href="https://www.kaggle.com/learn/data-visualization" target="_blank">Kaggle — Data Visualization</a></li>
       <li><a href="https://github.com/donnemartin/data-science-ipython-notebooks" target="_blank">GitHub — data-science-ipython-notebooks</a></li>
       <li><a href="https://huggingface.co/" target="_blank">Hugging Face</a></li>
       <li><a href="https://habr.com/ru/" target="_blank">Хабр</a></li>
-      <li><a href="https://dzen.ru/" target="_blank">Дзен</a></li>
       <li><a href="https://vk.com/" target="_blank">VK</a></li>
+      <li><a href="https://dzen.ru/" target="_blank">Дзен</a></li>
       <li><a href="https://cyberleninka.ru/" target="_blank">КиберЛенинка</a></li>
     </ul>
   </section>
@@ -288,7 +272,7 @@ plt.show()</code></pre>
 </main>
 
 <footer>
-  Учебная HTML-презентация · Тема 4 · Структура и оформление бизнес-презентации
+  Учебная HTML-презентация · Тема 2 · Типы и цели презентаций
 </footer>
 
 <script>
@@ -321,5 +305,4 @@ showSlide(0);
 </script>
 
 </body>
-</html>
 </html>
