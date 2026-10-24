@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Тема 4. Структура и оформление бизнес-презентации</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#04091a;
+  --bg2:#0e1a33;
+  --card:rgba(255,255,255,.06);
+  --border:rgba(120,200,255,.25);
+  --text:#e9f3ff;
+  --muted:#9db2d8;
+  --accent:#00e0ff;
+  --accent2:#b388ff;
+  --accent3:#00ffa3;
+  --code-bg:rgba(0,0,0,.45);
+}
+body.light{
+  --bg:#f2f7ff;
+  --bg2:#e6edff;
+  --card:rgba(255,255,255,.78);
+  --border:rgba(20,70,150,.18);
+  --text:#0f1a2e;
+  --muted:#47597a;
+  --accent:#0057ff;
+  --accent2:#7a2bff;
+  --accent3:#00a86b;
+  --code-bg:rgba(10,20,40,.06);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Inter',sans-serif;color:var(--text);
+  background:
+    radial-gradient(circle at 8% 14%, rgba(0,224,255,.18), transparent 35%),
+    radial-gradient(circle at 92% 16%, rgba(179,136,255,.18), transparent 35%),
+    radial-gradient(circle at 50% 100%, rgba(0,255,163,.12), transparent 40%),
+    linear-gradient(135deg,var(--bg),var(--bg2));
+  min-height:100vh;transition:.4s;
+}
+header{
+  position:sticky;top:0;z-index:20;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:16px 28px;
+  background:rgba(6,12,26,.55);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+}
+body.light header{background:rgba(255,255,255,.65)}
+.brand{font-weight:900;letter-spacing:.5px}
+.brand span{color:var(--accent)}
+.controls{display:flex;gap:10px;flex-wrap:wrap}
+button{
+  font-family:inherit;font-weight:700;cursor:pointer;
+  border:1px solid var(--border);background:var(--card);color:var(--text);
+  padding:10px 16px;border-radius:12px;transition:.25s;
+}
+button:hover{transform:translateY(-2px);border-color:var(--accent)}
+main{max-width:1150px;margin:auto;padding:40px 24px 80px}
+.slide{
+  display:none;background:var(--card);
+  border:1px solid var(--border);border-radius:24px;
+  padding:38px;margin-bottom:26px;
+  backdrop-filter:blur(10px);animation:appear .5s ease;
+}
+.slide.active{display:block}
+@keyframes appear{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+h1{font-size:clamp(30px,5vw,52px);font-weight:900;line-height:1.1}
+h2{font-size:clamp(24px,3.4vw,36px);margin-bottom:18px}
+h3{margin:18px 0 10px;color:var(--accent)}
+p,li{line-height:1.65}
+ul{margin:12px 0 12px 22px}
+.muted{color:var(--muted)}
+.tag{
+  display:inline-block;margin-bottom:16px;padding:6px 14px;
+  border-radius:999px;border:1px solid var(--border);
+  color:var(--accent);font-size:13px;font-weight:700;
+}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:20px}
+.card{border:1px solid var(--border);border-radius:18px;padding:20px;background:rgba(127,127,127,.08)}
+.card b{color:var(--accent2)}
+pre{
+  background:var(--code-bg);border:1px solid var(--border);
+  border-radius:16px;padding:18px;overflow:auto;
+  font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.55;
+}
+code{font-family:'JetBrains Mono',monospace}
+a{color:var(--accent);text-decoration:none;border-bottom:1px dashed var(--accent)}
+a:hover{color:var(--accent3)}
+table{width:100%;border-collapse:collapse;margin-top:16px;font-size:14px}
+th,td{border:1px solid var(--border);padding:10px;text-align:left}
+th{background:rgba(0,224,255,.12)}
+.nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;gap:12px;flex-wrap:wrap}
+.progress{height:5px;border-radius:99px;background:var(--border);overflow:hidden;margin-bottom:22px}
+.progress div{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:.35s}
+footer{text-align:center;padding:24px;color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">BUSINESS<span>·</span>DECK</div>
+  <div class="controls">
+    <button onclick="prevSlide()">← Назад</button>
+    <button onclick="nextSlide()">Вперёд →</button>
+    <button onclick="toggleTheme()">🌗 Тема</button>
+  </div>
+</header>
+
+<main>
+  <div class="progress"><div id="bar"></div></div>
+
+  <section class="slide active">
+    <span class="tag">Бизнес-презентация · Python · Data Visualization</span>
+    <h1>Структура, содержание и визуальное оформление бизнес-презентации</h1>
+    <p class="muted">Тема 4. От структуры и слайдов до корректной визуализации данных и стилей выступления.</p>
+    <div class="grid">
+      <div class="card"><b>Цель</b><p>Научиться создавать понятные и убедительные бизнес-презентации.</p></div>
+      <div class="card"><b>Инструменты</b><p>Python, pandas, Matplotlib, Seaborn, HTML.</p></div>
+      <div class="card"><b>Результат</b><p>Слайды с выводами, графиками и призывом к действию.</p></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>Структура бизнес-презентации</h2>
+    <ul>
+      <li>Титульный слайд.</li>
+      <li>Проблема и контекст.</li>
+      <li>Цель и предложение.</li>
+      <li>Решение и доказательства.</li>
+      <li>Выгоды, риски и план внедрения.</li>
+      <li>Призыв к действию.</li>
+    </ul>
+    <p class="muted">Формула: проблема → решение → доказательство → выгода → следующий шаг.</p>
+  </section>
+
+  <section class="slide">
+    <h2>Виды слайдов</h2>
+    <table>
+      <tr><th>Вид</th><th>Назначение</th></tr>
+      <tr><td>Титульный</td><td>Представление темы и спикера</td></tr>
+      <tr><td>Проблемный</td><td>Показать значимость задачи</td></tr>
+      <tr><td>Решение</td><td>Представить предложение</td></tr>
+      <tr><td>Данные</td><td>Подтвердить тезис цифрами</td></tr>
+      <tr><td>Кейс</td><td>Показать реальный результат</td></tr>
+      <tr><td>Дорожная карта</td><td>Обозначить этапы и сроки</td></tr>
+      <tr><td>Финальный</td><td>Сформулировать вывод и CTA</td></tr>
+    </table>
+  </section>
+
+  <section class="slide">
+    <h2>Принципы оформления</h2>
+    <div class="grid">
+      <div class="card"><b>Одна мысль</b><p>Один слайд раскрывает один тезис.</p></div>
+      <div class="card"><b>Заголовок-вывод</b><p>Не «Результаты», а «Время обработки сократилось на 40%».</p></div>
+      <div class="card"><b>Минимум текста</b><p>Детали объясняет спикер.</p></div>
+      <div class="card"><b>Единый стиль</b><p>Один шрифт, ограниченная палитра, единые отступы.</p></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>Типичные ошибки</h2>
+    <ul>
+      <li>Перегруженный текст и мелкий шрифт.</li>
+      <li>Несколько мыслей на одном слайде.</li>
+      <li>График без вывода, единиц измерения и источника.</li>
+      <li>Избыточные анимации и 3D-эффекты.</li>
+      <li>Таблицы вместо ключевых показателей.</li>
+      <li>Отсутствие призыва к действию.</li>
+    </ul>
+    <p class="muted">Распространённая ошибка — более одной мысли на слайде. Источник: <a href="https://prepod.nspu.ru/pluginfile.php/337/mod_resource/content/0/Pravila_oformlenija_slaidov_dlja_biznes-prezentacii_metodicheskoe_posobie.pdf" target="_blank">Правила оформления слайдов</a>.</p>
+  </section>
+
+  <section class="slide">
+    <h2>Визуализация данных</h2>
+    <table>
+      <tr><th>Задача</th><th>Визуализация</th></tr>
+      <tr><td>Сравнить категории</td><td>Столбчатая диаграмма</td></tr>
+      <tr><td>Показать динамику</td><td>Линейный график</td></tr>
+      <tr><td>Показать структуру</td><td>Круговая диаграмма</td></tr>
+      <tr><td>Показать связь</td><td>Диаграмма рассеяния</td></tr>
+      <tr><td>Показать процесс</td><td>Дорожная карта</td></tr>
+    </table>
+  </section>
+
+  <section class="slide">
+    <h2>Практикум: подготовка данных</h2>
+    <pre><code>import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+data = {
+    "month": ["Янв", "Фев", "Мар", "Апр", "Май", "Июн"],
+    "processing_time_before": [8.4, 8.6, 8.9, 9.2, 9.4, 9.8],
+    "processing_time_after": [8.4, 8.3, 6.9, 5.8, 5.1, 4.6],
+    "errors_before": [38, 41, 44, 47, 49, 52],
+    "errors_after": [38, 37, 25, 18, 14, 11]
+}
+
+df = pd.DataFrame(data)
+
+before = df["processing_time_before"].iloc[-1]
+after = df["processing_time_after"].iloc[-1]
+reduction = (before - after) / before
+
+print(f"Снижение времени обработки: {reduction:.0%}")</code></pre>
+  </section>
+
+  <section class="slide">
+    <h2>График для слайда</h2>
+    <pre><code>plt.figure(figsize=(10, 5))
+
+sns.lineplot(
+    data=df,
+    x="month",
+    y="processing_time_before",
+    label="До внедрения",
+    marker="o"
+)
+
+sns.lineplot(
+    data=df,
+    x="month",
+    y="processing_time_after",
+    label="После внедрения",
+    marker="o"
+)
+
+plt.title("Автоматизация сократила время обработки заявок")
+plt.xlabel("Месяц")
+plt.ylabel("Время обработки, ч.")
+plt.grid(True, alpha=0.3)
+plt.legend()
+plt.tight_layout()
+plt.show()</code></pre>
+    <p class="muted">Документация: <a href="https://matplotlib.org/stable/" target="_blank">Matplotlib</a>, <a href="https://seaborn.pydata.org/" target="_blank">Seaborn</a>.</p>
+  </section>
+
+  <section class="slide">
+    <h2>Стили презентаций</h2>
+    <table>
+      <tr><th>Стиль</th><th>Задача</th><th>Когда использовать</th></tr>
+      <tr><td>Пошаговый</td><td>Объяснить процесс</td><td>Обучение, внедрение</td></tr>
+      <tr><td>Эмоциональный</td><td>Вовлечь аудиторию</td><td>Event, бренд, изменения</td></tr>
+      <tr><td>Резюмирующий</td><td>Представить итоги</td><td>Отчёт, руководство</td></tr>
+      <tr><td>Убеждающий</td><td>Получить согласие</td><td>Инвестиции, продажа</td></tr>
+    </table>
+  </section>
+
+  <section class="slide">
+    <h2>Финальный слайд</h2>
+    <p><b>Рекомендация:</b> согласовать пилотное внедрение автоматизации обработки заявок на одном подразделении.</p>
+    <ul>
+      <li>Срок пилота — 4 недели.</li>
+      <li>Ожидаемый эффект — снижение времени обработки и числа ошибок.</li>
+      <li>Следующий шаг — утвердить рабочую группу и план пилота.</li>
+    </ul>
+    <p class="muted">Финальный слайд всегда должен отвечать на вопрос: «Что делать дальше?»</p>
+  </section>
+
+  <section class="slide">
+    <h2>Источники и материалы</h2>
+    <ul>
+      <li><a href="https://bonnieandslide.com/blog/biznes-prezentatsiya" target="_blank">Bonnie and Slide — бизнес-презентация</a></li>
+      <li><a href="https://www.slidescarnival.com/learn/how-to-make-a-business-presentation" target="_blank">SlidesCarnival</a></li>
+      <li><a href="https://visme.co/blog/business-presentation-layout/" target="_blank">Visme — Business Presentation Layout</a></li>
+      <li><a href="https://ixdf.org/literature/topics/presentation-styles?order-by=date" target="_blank">IxDF — Presentation Styles</a></li>
+      <li><a href="https://pandas.pydata.org/docs/" target="_blank">pandas</a></li>
+      <li><a href="https://matplotlib.org/stable/" target="_blank">Matplotlib</a></li>
+      <li><a href="https://seaborn.pydata.org/" target="_blank">Seaborn</a></li>
+      <li><a href="https://www.kaggle.com/learn/data-visualization" target="_blank">Kaggle — Data Visualization</a></li>
+      <li><a href="https://github.com/donnemartin/data-science-ipython-notebooks" target="_blank">GitHub — data-science-ipython-notebooks</a></li>
+      <li><a href="https://huggingface.co/" target="_blank">Hugging Face</a></li>
+      <li><a href="https://habr.com/ru/" target="_blank">Хабр</a></li>
+      <li><a href="https://dzen.ru/" target="_blank">Дзен</a></li>
+      <li><a href="https://vk.com/" target="_blank">VK</a></li>
+      <li><a href="https://cyberleninka.ru/" target="_blank">КиберЛенинка</a></li>
+    </ul>
+  </section>
+
+  <div class="nav">
+    <button onclick="prevSlide()">← Предыдущий слайд</button>
+    <span id="counter" class="muted"></span>
+    <button onclick="nextSlide()">Следующий слайд →</button>
+  </div>
+</main>
+
+<footer>
+  Учебная HTML-презентация · Тема 4 · Структура и оформление бизнес-презентации
+</footer>
+
+<script>
+const slides = document.querySelectorAll(".slide");
+let current = 0;
+
+function showSlide(n){
+  slides[current].classList.remove("active");
+  current = (n + slides.length) % slides.length;
+  slides[current].classList.add("active");
+  document.getElementById("bar").style.width =
+    ((current + 1) / slides.length * 100) + "%";
+  document.getElementById("counter").textContent =
+    `Слайд ${current + 1} из ${slides.length}`;
+}
+
+function nextSlide(){ showSlide(current + 1); }
+function prevSlide(){ showSlide(current - 1); }
+
+function toggleTheme(){
+  document.body.classList.toggle("light");
+}
+
+document.addEventListener("keydown", e => {
+  if(e.key === "ArrowRight" || e.key === " ") nextSlide();
+  if(e.key === "ArrowLeft") prevSlide();
+});
+
+showSlide(0);
+</script>
+
+</body>
+</html>
+</html>
